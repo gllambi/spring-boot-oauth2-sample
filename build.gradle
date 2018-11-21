@@ -1,0 +1,35 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.pyxis.oauth2'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE')
+    runtimeOnly('org.webjars:jquery:2.1.1')
+    runtimeOnly('org.webjars:bootstrap:3.2.0')
+    runtimeOnly('org.webjars:webjars-locator-core')
+    runtimeOnly('org.webjars:js-cookie')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
